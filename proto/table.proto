@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package tables;
+
+import "google/protobuf/struct.proto";
+
+message TableInfo {
+  string id = 1;
+  string name = 2;
+}
+
+enum ColumnType {
+  COLUMN_TYPE_STRING = 0;
+  COLUMN_TYPE_NUMBER = 1;
+  COLUMN_TYPE_CURRENCY = 2;
+  COLUMN_TYPE_BOOL = 3;
+}
+
+message ColumnDef {
+  string id = 1;
+  string title = 2;
+  ColumnType type = 3;
+  int32 width = 4;
+  bool is_tree = 5;
+  bool is_pinned = 6;
+  bool is_editable = 7;
+  bool is_primary = 8;
+}
+
+message TableSchema {
+  string table_id = 1;
+  string name = 2;
+  string primary_key = 3;
+  string parent_key = 4;
+  repeated ColumnDef columns = 5;
+}
+
+message Value {
+  oneof kind {
+    string string_value = 1;
+    int64 int_value = 2;
+    double double_value = 3;
+    bool bool_value = 4;
+    google.protobuf.NullValue null_value = 5;
+  }
+}
+
+message Row {
+  string id = 1;
+  string parent_id = 2;
+  map<string, Value> cells = 3;
+}
+
+message ListTablesRequest {}
+
+message ListTablesResponse {
+  repeated TableInfo tables = 1;
+}
+
+message GetSchemaRequest {
+  string table_id = 1;
+}
+
+message GetSchemaResponse {
+  TableSchema schema = 1;
+}
+
+message GetDataRequest {
+  string table_id = 1;
+}
+
+message GetDataResponse {
+  repeated Row rows = 1;
+}
+
+message UpdateCellRequest {
+  string table_id = 1;
+  string row_id = 2;
+  string column_id = 3;
+  Value value = 4;
+}
+
+message UpdateCellResponse {
+  bool ok = 1;
+  string error_message = 2;
+}
+
+service TableService {
+  rpc ListTables(ListTablesRequest) returns (ListTablesResponse);
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+  rpc GetData(GetDataRequest) returns (GetDataResponse);
+  rpc UpdateCell(UpdateCellRequest) returns (UpdateCellResponse);
+}

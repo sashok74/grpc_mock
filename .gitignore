@@ -1,0 +1,152 @@
+# Build artifacts
+build/
+cmake-build-*/
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+Testing/
+
+# Compiled files
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# Conan
+.conan/
+.conan2/
+conan.lock
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+
+# IDE - Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IDE - CLion / IntelliJ
+.idea/
+cmake-build-*/
+
+# IDE - Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+
+# IDE - Cursor
+.cursor/
+.cursor-tmp/
+.cursor-config.json
+.cursor-local.json
+
+# IDE - Other
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Firebird databases (test files)
+*.fdb
+*.FDB
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+cache/
+.claude
+
+# Documentation (local use only)
+# doc/
+
+doc/CICD_INTEGRATION_PLAN.md
+doc/EXTENDED_TYPES_ADAPTERS.md
+doc/FIREBIRD_BUFFER_AND_TYPES.md
+doc/FIREBIRD_TYPES_HANDLING.md
+doc/GITHUB_PREPARATION_GUIDE.md
+doc/LIB_V1_ARCHITECTURE.md
+doc/NAMED_PARAMETERS.md
+doc/PREPARED_STATEMENT_CACHE_SPEC.md
+doc/PROJECT_ANALYSIS.md
+doc/TUPLE_PACKER_ARCHITECTURE.md
+doc/archive/
+doc/examples/
+doc/firebird_oo_api_doc.md
+doc/firebird_types_guide.md
+
+# Private/local files
+.env
+.env.local
+*.local
+
+# OS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archive files (except in doc/archive which contains git history)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Binary office files (usually not in source control)
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# Delphi/C++ Builder artifacts (legacy from old .gitignore)
+*.~*
+*.ddp
+*.dsk
+*.tds
+*.bcc32pch
+*.dcu
+*.csv
+*.ilc
+*.ild
+*.ilf
+*.ils
+*.map
+*.pch
+*.pdi
+*.#*
+*.stat
+__astcache/
+__history/
+__recovery/
+Win32/
+Win64/
+Win64x/
